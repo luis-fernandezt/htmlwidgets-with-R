@@ -1,4 +1,6 @@
+## install.packages(devtool)
 ## devtools::install_github("ox-it/oidnChaRts", build_vignettes = TRUE)
+
 library("tidyverse")
 library("oidnChaRts")
 

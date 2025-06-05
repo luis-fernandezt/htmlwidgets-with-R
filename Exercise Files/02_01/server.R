@@ -2,7 +2,7 @@ library("tidyverse")
 library("oidnChaRts")
 library("sf")
 library("leaflet")
-
+library("shiny")
 
 shinyServer(function(input, output, session) {
   output$highlight_countries_UI <- renderUI({

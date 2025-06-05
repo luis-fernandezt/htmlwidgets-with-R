@@ -3,7 +3,7 @@ library("gapminder")
 library("tidyverse")
 library("leaflet")
 
-world_shapefiles <- read_sf(dsn = "data-raw/world-shape-files/")
+world_shapefiles <- read_sf(dsn = "Exercise Files/02_07/data-raw/world-shape-files/")
 
 gapminder_most_recent <- gapminder %>%
   mutate_if(is.factor, as.character) %>%
@@ -23,4 +23,5 @@ gapminder_world %>%
               popup = ~paste("Country", name, "<br/>", pop),
               fillColor = ~lifeExp_numeric_palette(lifeExp),
               fillOpacity = 0.8,
-              color = "#000")
+              color = "#000") |>
+  addLegend(pal = lifeExp_numeric_palette, value = ~lifeExp)

@@ -2,9 +2,31 @@ library("tidyverse")
 library("oidnChaRts")
 library("sf")
 library("leaflet")
+library("shiny")
 
 
 shinyServer(function(input, output, session) {
+  
+  output$clicked_country <- renderUI({
+    if (is.null(input$leaflet_map_shape_click)) {
+      fluidRow(column("Map not clicked yet",
+                      width = 12))
+    } else {
+      print(input$leaflet_map_shape_click)
+      fluidRow(column("Country", input$leaflet_map_shape_click$id, width = 12))
+    }
+    
+  })
+  
+  observeEvent(input$countries_to_remove, {
+    
+    leafletProxy("leaflet_map", session) %>%
+      removeShape(input$countries_to_remove)
+    
+  })
+  
+
+  
   output$highlight_countries_UI <- renderUI({
     selectInput(
       "countries_to_remove",

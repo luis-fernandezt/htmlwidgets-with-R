@@ -1,7 +1,7 @@
 library("tidyverse")
 library("readxl")
 
-wide_data <- read_xlsx("data-raw/wide-format.xlsx")
+wide_data <- read_xlsx("Exercise Files/01_07/data-raw/wide-format.xlsx")
 
 wide_data %>%
   gather(year, horses, contains("horses"))

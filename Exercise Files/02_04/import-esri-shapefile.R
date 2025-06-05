@@ -1,6 +1,6 @@
 library("sf")
 
-world_shapefiles <- read_sf(dsn = "data-raw/world-shape-files/")
+world_shapefiles <- read_sf(dsn = "Exercise Files/02_04/data-raw/world-shape-files/")
 
 class(world_shapefiles)
 
@@ -18,3 +18,5 @@ gapminder_world <- world_shapefiles %>%
 
 gapminder_world %>%
   select(name, lifeExp)
+
+gapminder_world$lifeExp

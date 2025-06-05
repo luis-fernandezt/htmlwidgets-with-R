@@ -3,7 +3,7 @@ library("gapminder")
 library("tidyverse")
 library("leaflet")
 
-world_shapefiles <- read_sf(dsn = "data-raw/world-shape-files/")
+world_shapefiles <- read_sf(dsn = "Exercise Files/02_07/data-raw/world-shape-files/")
 
 gapminder_most_recent <- gapminder %>%
   mutate_if(is.factor, as.character) %>%
@@ -21,4 +21,5 @@ gapminder_world %>%
   addPolygons(weight = 1,
               label = ~name,
               popup = ~paste("Country", name, "<br/>", pop),
-              color = ~continent_palette(continent))
+              color = ~continent_palette(continent)) |>
+  addLegend(pal = continent_palette, value = ~continent)

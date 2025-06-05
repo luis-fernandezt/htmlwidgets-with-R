@@ -76,7 +76,7 @@ leaflet() %>%
 The `leaflet` library makes it very simple to create choropleth using `SpatialPolygonsDataFrame`, which we can add as an additional layer to our chart:
 
 ```{r}
-library("statesRcontiguous")
+library("statesRcontiguous") 
 leaflet() %>%
   addTiles() %>%
   addPolylines(data = geo_lines, color = "#2c7bb6", opacity = 0.2) %>%
